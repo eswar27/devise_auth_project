@@ -1,0 +1,23 @@
+
+<table class="table table-bordered table-light">
+  <thead style="color:white;background-color:red;">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+
+  <tbody style="color:white;background-color:black;">
+      <tr>
+        <td><%= @customer.name %></td>
+        <td><%= @customer.email %></td>
+        <td><%= @customer.phone %></td>
+        <td><%= @customer.address %></td>
+      </tr>
+  </tbody>
+</table>
+
+<%= button_to 'Edit', edit_customer_path(@customer),method: :get,class:"btn btn-primary",style:"margin:8px;" %> 
+<%= button_to 'Back', customers_path ,method: :get,class:"btn btn-primary",style:"margin:8px;" %>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  .navbar { 
+  min-height: 50px; 
+}
+.navbar-custom {
+  background-color:black;
+    
+    color: white;
+}
+.nav > li > a:hover{
+    background-color:darkviolet;
+}
+body{
+  background-image: url('https://media.istockphoto.com/id/1198591342/photo/diamond-still-life.jpg?b=1&s=170667a&w=0&k=20&c=NcPp5xdvuPuQP4bx-k_h0QB5VGwsH1hP9sxQS7jpmCU=');
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+label,em,li{
+  color:white;
+}
+.link-to-text-color{
+  
+color:white;
+}
+</style>
+
+</head>
+<body>
+<div class="collapse navbar-collapse">
+<nav class="navbar navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+     <div class="active"> <a class="navbar-brand" style="color:white" href="/"><i class="fa fa-diamond"></i> <b>Caratlane</b></a></div>
+    </div>
+    
+    <ul class="nav navbar-nav navbar-right" style="padding:2px;">
+      <li><%= button_to 'Home',"http://localhost:3000",class:"btn btn-danger",method:"get", style:"margin:8px;"%></li>
+      <li><%= button_to 'About',"http://localhost:3000/about",class:"btn btn-danger",method:"get",style:"margin:8px;" %></li>
+      <% if install_signed_in? %>
+      <li><%= button_to 'Customers',customers_path,class:"btn btn-danger",style:"margin:8px;",method:"get" %></li>
+      <li><div class="nav-text" style="padding:14px;"> <%= current_install.email %></div></li>
+      <li><%= button_to 'Sign out', destroy_install_session_path,:method => :delete,class: "btn btn-danger",style:"margin:8px;" %></li>
+      
+      
+      <% else %>
+      <li><%= button_to 'Login', new_install_session_path,class: "btn btn-danger",style:"margin:8px;" %></li>
+      <li><%= button_to 'Sign-up', new_install_registration_path,class: "btn btn-danger",method:"get",style:"margin:8px;" %></li>
+  <% end %>
+    </ul>
+    </div>
+  
+   
+  </div>
+</nav>
+</div>
+
+
+<%= yield %>
+
+</body>
+</html>
