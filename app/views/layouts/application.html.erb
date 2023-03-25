@@ -21,14 +21,14 @@
 .navbar-custom {
   background-color:black;
     
-    color: white;
+    color: black;
 }
 .nav > li > a:hover{
     background-color:darkviolet;
 }
 body{
   background-image: url('https://media.istockphoto.com/id/1198591342/photo/diamond-still-life.jpg?b=1&s=170667a&w=0&k=20&c=NcPp5xdvuPuQP4bx-k_h0QB5VGwsH1hP9sxQS7jpmCU=');
-  background-repeat:no-repeat;
+  background-repeat:repeat;
   background-size:cover;
 }
 label,em,li{
@@ -50,7 +50,7 @@ color:white;
     </div>
     
     <ul class="nav navbar-nav navbar-right" style="padding:2px;">
-      <li><%= button_to 'Home',"http://localhost:3000",class:"btn btn-danger",method:"get", style:"margin:8px;"%></li>
+      <li><%= button_to 'Home',"http://localhost:3000",class:"btn btn-primary",method:"get", style:"margin:8px;"%></li>
       <li><%= button_to 'About',"http://localhost:3000/about",class:"btn btn-danger",method:"get",style:"margin:8px;" %></li>
       <% if install_signed_in? %>
       <li><%= button_to 'Customers',customers_path,class:"btn btn-danger",style:"margin:8px;",method:"get" %></li>
